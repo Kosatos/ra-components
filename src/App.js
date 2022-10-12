@@ -1,6 +1,8 @@
+import moment from 'moment';
 import ShopItemFunc from './conponents/ShopItemFunc';
 import ShopItemClass from './conponents/ShopItemClass';
 import './App.css';
+import Calendar from './conponents/calendar';
 
 function App() {
   const items = [
@@ -24,6 +26,9 @@ function App() {
     },
   ];
 
+  moment.updateLocale('ru', { week: { dow: 1 } });
+  const now = moment();
+
   return (
     <div className="container">
       <div className="background-element"></div>
@@ -33,6 +38,7 @@ function App() {
       <div className="window">
         <ShopItemFunc item={items[0]} />
         <ShopItemClass item={items[1]} />
+        <Calendar date={now} />
       </div>
     </div>
   );

@@ -1,0 +1,41 @@
+import ShopItemFunc from './conponents/ShopItemFunc';
+import ShopItemClass from './conponents/ShopItemClass';
+import './App.css';
+
+function App() {
+  const items = [
+    {
+      brand: 'Tiger of Sweden',
+      title: 'Leonard coat',
+      description: 'Minimalistic coat in cotton-blend',
+      descriptionFull:
+        "Men's minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.",
+      price: 399,
+      currency: '£',
+    },
+    {
+      brand: 'Converse',
+      title: 'Chuck 70 Vintage Canvas',
+      description: 'Unisex high top shoe',
+      descriptionFull:
+        'The best-ever gets a seasonal makeover with premium canvas in archival color.',
+      price: 80,
+      currency: '$',
+    },
+  ];
+
+  return (
+    <div className="container">
+      <div className="background-element"></div>
+      <div className="highlight-window">
+        <div className="highlight-overlay"></div>
+      </div>
+      <div className="window">
+        <ShopItemFunc item={items[0]} />
+        <ShopItemClass item={items[1]} />
+      </div>
+    </div>
+  );
+}
+
+export default App;

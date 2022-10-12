@@ -80,14 +80,24 @@ export default function Calendar({ date }) {
         <tbody>
           {weeks.map((week, idx) => {
             return (
-              <tr>
+              <tr key={idx}>
                 {week.map((day) => {
                   return day.isSame(date, 'day') ? (
-                    <td className="ui-datepicker-today">{day.date()}</td>
+                    <td
+                      className="ui-datepicker-today"
+                      key={day.format('MM-DD-YY')}
+                    >
+                      {day.date()}
+                    </td>
                   ) : !date.isSame(day, 'month') ? (
-                    <td className="ui-datepicker-other">{day.date()}</td>
+                    <td
+                      className="ui-datepicker-other"
+                      key={day.format('MM-DD-YY')}
+                    >
+                      {day.date()}
+                    </td>
                   ) : (
-                    <td>{day.date()}</td>
+                    <td key={day.format('MM-DD-YY')}>{day.date()}</td>
                   );
                 })}
               </tr>
